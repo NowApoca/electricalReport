@@ -1,6 +1,35 @@
+
+<script>
+    $(function () {
+        $("[rel='tooltip']").tooltip();
+    });
+    // var graphs = '<%- JSON.stringify([{title:1}]) %>'
+    // console.log(graphs)
+</script>
+
 <div class="container">
-    <div class="row" style="width: 100%;">
-        <div class="col-md-3 offset-md-1" style="width: 50%; height: 50%;"><canvas id="myChart1"></canvas></div>
-        <div class="col-md-3 offset-md-1" style="width: 50%; height: 50%;"><canvas id="myChart4"></canvas></div>
+    <% for (let i = 0; i < graphs.length; i+= 2){ %>
+    <div class="row" style="width: 100%; margin-bottom: 50px;">
+        <div class="col-md-3" style="width: 50%; height: 50%;">
+            <% if (graphs[i].type == "line"){ %>
+            <button onclick={resetZoom()} >Reset</button>
+            <% } %>
+            <canvas id='<%= graphs[i].id %>'></canvas>  ></canvas>
+            <button type="button" rel="tooltip" style="position: absolute; left: 0%;"  data-toggle="tooltip" data-placement="left"
+            title='<%= graphs[i].title %>'>
+            B
+            </button>
+        </div>
+        <div class="col-md-3" style="width: 50%; height: 50%;">
+            <% if (graphs[i+1].type == "line"){ %>
+                <button onclick={resetZoom()} >Reset</button>
+            <% } %>
+            <canvas id='<%= graphs[i+1].id %>'></canvas>
+            <button type="button" rel="tooltip" style="position: absolute; right: 15%;"  data-toggle="tooltip" data-placement="right"
+            title='<%= graphs[i+1].title %>'>
+            B
+            </button>
+        </div>
     </div>
+    <% } %>
 </div>
