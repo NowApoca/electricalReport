@@ -67,7 +67,13 @@ const graphs = [{
     xAxisLabel: "Settlement Period",
     yAxisUnit: "MWh",
     xAxisUnit: "",
-    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
+    datasets: [{
+        data: data,
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.2)',
+        fill: {display: false}
+    }]
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart5",
@@ -76,7 +82,13 @@ const graphs = [{
     xAxisLabel: "Settlement Period",
     yAxisUnit: "MW",
     xAxisUnit: "",
-    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
+    datasets: [{
+        data: data,
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.2)',
+        fill: {display: false}
+    }]
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart6",
@@ -85,7 +97,13 @@ const graphs = [{
     xAxisLabel: "Settlement Period",
     yAxisUnit: "MW",
     xAxisUnit: "",
-    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
+    datasets: [{
+        data: data,
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.2)',
+        fill: {display: false}
+    }]
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart7",
@@ -94,7 +112,13 @@ const graphs = [{
     xAxisLabel: "Settlement Period",
     yAxisUnit: "MW",
     xAxisUnit: "",
-    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
+    datasets: [{
+        data: data,
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.2)',
+        fill: {display: false}
+    }]
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart8",
@@ -103,7 +127,13 @@ const graphs = [{
     xAxisLabel: "Settlement Period",
     yAxisUnit: "Hz",
     xAxisUnit: "",
-    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"]
+    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
+    datasets: [{
+        data: data,
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.2)',
+        fill: {display: false}
+    }]
 }]
 
 function floatToUnit(value, unit) {

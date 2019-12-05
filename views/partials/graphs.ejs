@@ -7,10 +7,10 @@
     // console.log(graphs)
 </script>
 
-<div class="container">
+<div class="container" style="background-color: grey;">
     <% for (let i = 0; i < graphs.length; i+= 2){ %>
     <div class="row" style="width: 100%; margin-bottom: 50px;">
-        <div class="col-md-3" style="width: 50%; height: 50%;">
+        <div class="col-md-3" style="width: 50%; height: 50%; background-color: white;">
             <% if (graphs[i].type == "line"){ %>
             <button onclick={resetZoom()} >Reset</button>
             <% } %>
