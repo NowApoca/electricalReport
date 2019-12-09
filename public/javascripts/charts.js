@@ -17,20 +17,20 @@ const graphs = [{
         label: 'Gas',
         data: data,
         fill: "1",
-        borderColor: 'rgba(244, 244, 244, 0.9)',
-        backgroundColor: 'rgba(161, 116, 252, 0.9)',
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },{
         label: 'Coal',
         data: data2,
         fill: "2",
-        borderColor: 'rgba(161, 116, 252, 0.9)',
-        backgroundColor: 'rgba(244, 244, 244, 0.9)',
+        borderColor: 'rgba(10, 67, 72, 1)',
+        backgroundColor: 'rgba(10, 67, 72, 0.9)',
     },{
         label: 'Nuclear',
         data: data3,
         fill: "origin",
-        borderColor: 'rgba(161, 116, 252, 0.9)',
-        backgroundColor: 'rgba(129, 95, 214, 0.9)',
+        borderColor: 'rgba(206, 245, 0, 1)',
+        backgroundColor: 'rgba(206, 245, 0, 0.9)',
     }]
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
@@ -40,8 +40,8 @@ const graphs = [{
     labels: ["gas", "coal", "nuclear"],
     datasets: [{
         data: [13000, 9000, 7000],
-        borderColor: ['rgba(211, 211, 211, 1)', 'rgba(161, 116, 252, 0.5)', 'rgba(129, 95, 214,0.9)'],
-        backgroundColor: ['rgba(211, 211, 211, 0.2)', 'rgba(161, 116, 252, 0.5)', 'rgba(129, 95, 214, 0.9)'],
+        borderColor: ['rgba(124, 109, 109, 1)', 'rgba(10, 67, 72, 1)', 'rgba(206, 245, 0, 1)'],
+        backgroundColor: ['rgba(124, 109, 109, 0.2)', 'rgba(10, 67, 72, 0.2)', 'rgba(206, 245, 0, 0.2)'],
     }]
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
@@ -53,8 +53,9 @@ const graphs = [{
     xAxisUnit: "",
     labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
     datasets: [{
+        label: "System Prices",
         data: data,
-        borderColor: 'rgba(161, 116, 252, 0.9)',
+        borderColor: 'rgba(124, 109, 109, 1)',
         backgroundColor: 'rgba(124, 109, 109, 0.2)',
         fill: {display: false}
     }]
@@ -68,8 +69,9 @@ const graphs = [{
     xAxisUnit: "",
     labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
     datasets: [{
+        label: "Market Imbalance",
         data: data,
-        borderColor: 'rgba(161, 116, 252, 0.9)',
+        borderColor: 'rgba(124, 109, 109, 1)',
         backgroundColor: 'rgba(124, 109, 109, 0.2)',
         fill: {display: false}
     }]
@@ -84,7 +86,8 @@ const graphs = [{
     labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
     datasets: [{
         data: data,
-        borderColor: 'rgba(161, 116, 252, 0.9)',
+        label: "System Demand",
+        borderColor: 'rgba(124, 109, 109, 1)',
         backgroundColor: 'rgba(124, 109, 109, 0.2)',
         fill: {display: false}
     }]
@@ -98,8 +101,9 @@ const graphs = [{
     xAxisUnit: "",
     labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
     datasets: [{
+        label: "Rolling System Demand",
         data: data,
-        borderColor: 'rgba(161, 116, 252, 0.9)',
+        borderColor: 'rgba(124, 109, 109, 1)',
         backgroundColor: 'rgba(124, 109, 109, 0.2)',
         fill: {display: false}
     }]
@@ -114,7 +118,8 @@ const graphs = [{
     labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
     datasets: [{
         data: data,
-        borderColor: 'rgba(161, 116, 252, 0.9)',
+        label: "average",
+        borderColor: 'rgba(124, 109, 109, 1)',
         backgroundColor: 'rgba(124, 109, 109, 0.2)',
         fill: {display: false}
     }]
@@ -126,9 +131,8 @@ const graphs = [{
     labels: ["LOW", "MEDIUM", "HIGH"],
     datasets: [{
         data: [9000, 9000, 9000],
-        borderColor: ['rgba(211, 211, 211, 1)', 'rgba(161, 116, 252, 0.5)', 'rgba(129, 95, 214,0.9)'],
-        backgroundColor: ['rgba(211, 211, 211, 0.2)', 'rgba(161, 116, 252, 0.5)', 'rgba(129, 95, 214, 0.9)'],
-      
+        borderColor: ['rgba(33, 175, 33, 1)', 'rgba(175, 175, 33, 1)', 'rgba(175, 33, 33, 1)'],
+        backgroundColor: ['rgba(33, 175, 33, 1)', 'rgba(175, 175, 33, 1)', 'rgba(175, 33, 33, 1)'],
     },
     {
         "data": [
@@ -178,7 +182,6 @@ function renderChart(graph) {
             options: graph.options
         });
     }
-
 }
 
 function resetZoom(i){
@@ -204,14 +207,19 @@ function createNormalLineZoomChart(graph, documentById){
             },
             responsive: true,
             legend: {
-                display: false,
+                display: true,
                 position: 'top',
             },
-            title: {
-                display: true,
-                text: 'LOADS'
+            tooltips: {
+                mode: 'x',
             },
-
+            hover: {
+                onHover: function(e) {
+                var point = this.getElementsAtEvent(e);
+                if (point.length) e.target.style.cursor = 'pointer';
+                else e.target.style.cursor = 'default';
+                }
+            },
             plugins: {
                 zoom: {
                     pan: {
@@ -240,17 +248,10 @@ function createNormalLineZoomChart(graph, documentById){
                         gridLines: {
                             display: true
                         },
-                        scaleLabel: {
-                            display: true,
-                            labelString: graph.yAxisLabel
-                          },
                         ticks: {
                             display: true,
                             beginAtZero: true,
                             max: 60000,
-                            callback: function (value, index, values) {
-                                return floatToUnit(value, graph.yAxisUnit);
-                            }
                         }
                     }
                 ],
