@@ -127,12 +127,12 @@ const graphs = [{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart8",
     type:"doughnut",
-    yAxisUnit: "MW",
-    labels: ["LOW", "MEDIUM", "HIGH"],
+    yAxisLabel: "Last Frequency gauger. Actual Value: 54,23",
+    labels: ["-35", "[35,55)","[45,55]","(55,65]", "+65"],
     datasets: [{
-        data: [9000, 9000, 9000],
-        borderColor: ['rgba(33, 175, 33, 1)', 'rgba(175, 175, 33, 1)', 'rgba(175, 33, 33, 1)'],
-        backgroundColor: ['rgba(33, 175, 33, 1)', 'rgba(175, 175, 33, 1)', 'rgba(175, 33, 33, 1)'],
+        data: [9000, 9000, 9000, 9000, 9000],
+        borderColor: ['rgba(175, 33, 33, 1)', 'rgba(175, 175, 33, 1)','rgba(33, 175, 33, 1)','rgba(175, 175, 33, 1)', 'rgba(175, 33, 33, 1)'],
+        backgroundColor: ['rgba(175, 33, 33, 1)', 'rgba(175, 175, 33, 1)','rgba(33, 175, 33, 1)','rgba(175, 175, 33, 1)', 'rgba(175, 33, 33, 1)'],
     },
     {
         "data": [
@@ -156,7 +156,11 @@ const graphs = [{
     options: {
         cutoutPercentage: 10,
         rotation:	-0.5 * Math.PI,
-        circumference:	1 * Math.PI
+        circumference:	1 * Math.PI,
+        legend: {
+            display: true,
+            position: 'right',
+        }
     }
 }]
 
