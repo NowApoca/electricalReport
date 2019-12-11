@@ -3,76 +3,91 @@ const graphConfig = {
         BIOMASS: {
             fill: "1",
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
        CCGT: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        COAL: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        INTEW: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        INTIRL: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        INTNED: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        INTNEM: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        NPSHYD: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        NUCLEAR: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        OCGT: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        OIL: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        OTHER: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        PS: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        WIND: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
        INTFR: {
         fill: "1",
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
     },
@@ -83,142 +98,168 @@ const graphConfig = {
     },
     imbalance: {
         B1: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B2: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B3: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B4: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B5: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B6: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B7: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B8: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B9: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B10: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B11: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B12: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B13: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B14: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B15: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B16: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         B17: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         N: {
-            fill: "1",
+            fill: {display: false},
+            pointRadius: 0.1,
             borderColor: 'rgba(124, 109, 109, 1)',
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
     },
     rollingSystem: {
-        fill: "1",
+        fill: {display: false},
         borderColor: 'rgba(124, 109, 109, 1)',
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     },
     systemPrices:{
         systemSellPrice: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         systemBuyPrice:{
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         }
     },
     forecast: {N:{
-        fill: "1",
+        fill: {display: false},
         borderColor: 'rgba(124, 109, 109, 1)',
+        pointRadius: 0.1,
         backgroundColor: 'rgba(124, 109, 109, 0.9)',
     }},
     interconnections: {
         INTEW: {
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         INTFR:{
-            fill: "1",
+            fill: {display: false},
+            pointRadius: 0.1,
             borderColor: 'rgba(124, 109, 109, 1)',
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         INTIRL:{
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         INTNED:{
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         },
         INTNEM:{
-            fill: "1",
+            fill: {display: false},
             borderColor: 'rgba(124, 109, 109, 1)',
+            pointRadius: 0.1,
             backgroundColor: 'rgba(124, 109, 109, 0.9)',
         }
     }
@@ -229,8 +270,6 @@ data2 = [15000, 10000, 9000, 12000, 14000, 10000, 9000];
 data3 = [10000, 8000, 5000, 8000, 7000, 9000, 7000];
 data4 = [8000, 12000, 12000, 8000, 8000, 19000, 22000];
 data5 = [5000, 5000, 5000, 5000, 5000, 5000, 5000];
-
-console.log("DE ESTE LADO", cache)
 
 function getLabels(cacheData){
     var arr = [];
@@ -373,9 +412,9 @@ const graphs = [{
     },
     {
         "data": [
-            300,
-            200,
-            5700,
+            2750,
+            55,
+            2250,
         ],
         "backgroundColor": [
             "rgba(0, 0, 0, 0)",
@@ -440,7 +479,6 @@ function resetZoom(i){
 }
 
 function createNormalLineZoomChart(graph, documentById){
-    console.log("CUANDO ME ROMPO?")
     new Chart(documentById, {
         type: 'line',
         data: {
