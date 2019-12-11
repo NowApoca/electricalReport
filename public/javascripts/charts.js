@@ -1,10 +1,295 @@
+const graphConfig = {
+    fuelType: {
+        BIOMASS: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+       CCGT: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       COAL: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       INTEW: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       INTIRL: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       INTNED: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       INTNEM: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       NPSHYD: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       NUCLEAR: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       OCGT: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       OIL: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       OTHER: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       PS: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       WIND: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+       INTFR: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+    },
+    signalFreq: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+    imbalance: {
+        B1: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B2: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B3: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B4: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B5: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B6: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B7: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B8: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B9: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B10: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B11: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B12: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B13: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B14: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B15: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B16: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        B17: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        N: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+    },
+    rollingSystem: {
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    },
+    systemPrices:{
+        systemSellPrice: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        systemBuyPrice:{
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        }
+    },
+    forecast: {N:{
+        fill: "1",
+        borderColor: 'rgba(124, 109, 109, 1)',
+        backgroundColor: 'rgba(124, 109, 109, 0.9)',
+    }},
+    interconnections: {
+        INTEW: {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        INTFR:{
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        INTIRL:{
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        INTNED:{
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        },
+        INTNEM:{
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+        }
+    }
+}
+
 data = [20000, 14000, 12000, 11000, 12000, 14000, 13000];
 data2 = [15000, 10000, 9000, 12000, 14000, 10000, 9000];
 data3 = [10000, 8000, 5000, 8000, 7000, 9000, 7000];
 data4 = [8000, 12000, 12000, 8000, 8000, 19000, 22000];
 data5 = [5000, 5000, 5000, 5000, 5000, 5000, 5000];
 
+console.log("DE ESTE LADO", cache)
+
+function getLabels(cacheData){
+    var arr = [];
+    if(cacheData == undefined || cacheData.lastUpdate == 0){
+        arr.push(0)
+        return;
+    }
+    for(var point in cacheData){
+        arr.push(point);
+    }
+    return arr;
+}
+
+function getDatasets(cacheData, graphConfigData){
+    if(cacheData == undefined || cacheData.lastUpdate == 0){
+        return {
+            fill: "1",
+            borderColor: 'rgba(124, 109, 109, 1)',
+            backgroundColor: 'rgba(124, 109, 109, 0.9)',
+            data: [0],
+            labels: [0],
+        }
+    }
+    var arrData = {};
+    var arrDatasets = [];
+    for(var point of cacheData){
+        for(var key in point){
+            if(key != "ts" ){
+                if(arrData[key]){
+                    arrData[key].push(point[key])
+                }else{
+                    arrData[key] = [point[key]]
+                }
+            }
+        }
+    }
+    for(var key in arrData){
+        if(graphConfigData[key] === undefined){
+            arrDatasets.push(graphConfigData);
+        }else{
+            graphConfigData[key].data = arrData[key];
+            graphConfigData[key].label = key;
+            arrDatasets.push(graphConfigData[key]);
+        }
+    }
+    return arrDatasets;
+}
+
 const graphs = [{
+    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
+    id:"myChart10",
+    type:"line",
+    yAxisLabel: "Rolling System",
+    xAxisLabel: "Settlement Period",
+    yAxisUnit: "MW",
+    xAxisUnit: "",
+    labels: getLabels(cache.lastInterconnections),
+    datasets: getDatasets(cache.lastInterconnections, graphConfig.interconnections)
+  },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart1",
     type:"line",
@@ -12,26 +297,8 @@ const graphs = [{
     xAxisLabel: "Settlement Period",
     yAxisUnit: "MW",
     xAxisUnit: "",
-    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
-    datasets: [{
-        label: 'Gas',
-        data: data,
-        fill: "1",
-        borderColor: 'rgba(124, 109, 109, 1)',
-        backgroundColor: 'rgba(124, 109, 109, 0.9)',
-    },{
-        label: 'Coal',
-        data: data2,
-        fill: "2",
-        borderColor: 'rgba(10, 67, 72, 1)',
-        backgroundColor: 'rgba(10, 67, 72, 0.9)',
-    },{
-        label: 'Nuclear',
-        data: data3,
-        fill: "origin",
-        borderColor: 'rgba(206, 245, 0, 1)',
-        backgroundColor: 'rgba(206, 245, 0, 0.9)',
-    }]
+    labels: getLabels(cache.lastFuel),
+    datasets: getDatasets(cache.lastFuel, graphConfig.fuelType)
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart2",
@@ -47,82 +314,52 @@ const graphs = [{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart3",
     type:"line",
-    yAxisLabel: "System Prices",
+    yAxisLabel: "Freq Signal",
     xAxisLabel: "Settlement Period",
-    yAxisUnit: "$/MWh",
+    yAxisUnit: "MW",
     xAxisUnit: "",
-    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
-    datasets: [{
-        label: "System Prices",
-        data: data,
-        borderColor: 'rgba(124, 109, 109, 1)',
-        backgroundColor: 'rgba(124, 109, 109, 0.2)',
-        fill: {display: false}
-    }]
+    labels: getLabels(cache.lastImbalance),
+    datasets: getDatasets(cache.lastImbalance, graphConfig.imbalance)
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart4",
     type:"line",
-    yAxisLabel: "Market Imbalance",
+    yAxisLabel: "Rolling System",
     xAxisLabel: "Settlement Period",
-    yAxisUnit: "MWh",
+    yAxisUnit: "MW",
     xAxisUnit: "",
-    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
-    datasets: [{
-        label: "Market Imbalance",
-        data: data,
-        borderColor: 'rgba(124, 109, 109, 1)',
-        backgroundColor: 'rgba(124, 109, 109, 0.2)',
-        fill: {display: false}
-    }]
+    labels: getLabels(cache.lastRollingSystem),
+    datasets: getDatasets(cache.lastRollingSystem, graphConfig.rollingSystem)
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart5",
     type:"line",
-    yAxisLabel: "System Demand",
+    yAxisLabel: "Rolling System",
     xAxisLabel: "Settlement Period",
     yAxisUnit: "MW",
     xAxisUnit: "",
-    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
-    datasets: [{
-        data: data,
-        label: "System Demand",
-        borderColor: 'rgba(124, 109, 109, 1)',
-        backgroundColor: 'rgba(124, 109, 109, 0.2)',
-        fill: {display: false}
-    }]
+    labels: getLabels(cache.lastSystemPrices),
+    datasets: getDatasets(cache.lastSystemPrices, graphConfig.systemPrices)
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart6",
     type:"line",
-    yAxisLabel: "Rolling System Demand",
+    yAxisLabel: "Rolling System",
     xAxisLabel: "Settlement Period",
     yAxisUnit: "MW",
     xAxisUnit: "",
-    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
-    datasets: [{
-        label: "Rolling System Demand",
-        data: data,
-        borderColor: 'rgba(124, 109, 109, 1)',
-        backgroundColor: 'rgba(124, 109, 109, 0.2)',
-        fill: {display: false}
-    }]
-  },{
+    labels: getLabels(cache.lastForecast),
+    datasets: getDatasets(cache.lastForecast, graphConfig.forecast)
+    },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart7",
     type:"line",
-    yAxisLabel: "Average Half Hourly Interconnector Flows",
+    yAxisLabel: "Freq Signal",
     xAxisLabel: "Settlement Period",
     yAxisUnit: "MW",
     xAxisUnit: "",
-    labels: ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"],
-    datasets: [{
-        data: data,
-        label: "average",
-        borderColor: 'rgba(124, 109, 109, 1)',
-        backgroundColor: 'rgba(124, 109, 109, 0.2)',
-        fill: {display: false}
-    }]
+    labels: getLabels(cache.lastFreq),
+    datasets: getDatasets(cache.lastFreq, graphConfig.signalFreq)
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart8",
@@ -161,8 +398,17 @@ const graphs = [{
             display: true,
             position: 'right',
         }
-    }
-}]
+    }},{
+    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
+    id:"myChart9",
+    type:"line",
+    yAxisLabel: "Rolling System",
+    xAxisLabel: "Settlement Period",
+    yAxisUnit: "MW",
+    xAxisUnit: "",
+    labels: getLabels(cache.lastInitialTransmision),
+    datasets: getDatasets(cache.lastInitialTransmision, graphConfig.systemPrices)
+  }]
 
 function floatToUnit(value, unit) {
     return unit + (value).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
@@ -194,6 +440,7 @@ function resetZoom(i){
 }
 
 function createNormalLineZoomChart(graph, documentById){
+    console.log("CUANDO ME ROMPO?")
     new Chart(documentById, {
         type: 'line',
         data: {
@@ -238,10 +485,6 @@ function createNormalLineZoomChart(graph, documentById){
                     rangeMin: {
                         // Format of min zoom range depends on scale type
                         y: 0
-                    },
-                    rangeMax: {
-                        // Format of max zoom range depends on scale type
-                        y: 160000
                     }
                 }
             },
@@ -254,8 +497,7 @@ function createNormalLineZoomChart(graph, documentById){
                         },
                         ticks: {
                             display: true,
-                            beginAtZero: true,
-                            max: 60000,
+                            beginAtZero: true
                         }
                     }
                 ],

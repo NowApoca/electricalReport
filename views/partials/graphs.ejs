@@ -3,8 +3,8 @@
     $(function () {
         $("[rel='tooltip']").tooltip();
     });
+    var cache = <%- JSON.stringify(cache) %>
 </script>
-
 
 <div class="container" style="background-color: white;">
     <% for (var i = 0; i < graphs.length; i+= 2){ %>

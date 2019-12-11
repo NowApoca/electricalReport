@@ -4,10 +4,11 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-
+var polling = require('./polling');
 var routes = require('./routes/index');
 
 var app = express();
+var cache = {};
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,6 +20,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+polling.polling()
 
 app.use('/', routes);
 
@@ -54,4 +57,5 @@ app.use(function(err, req, res, next) {
 });
 
 
-module.exports = app;
+module.exports =  app
+

@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var cache = require("..//polling").cache;
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  res.render('index', { title: 'Express', graphs: [{
+  res.render('index', { title: 'Express', cache: cache, graphs: [{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart1",
     type:"line",
@@ -37,7 +38,7 @@ router.get('/', function(req, res) {
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart5",
     type:"line",
-    yAxisLabel: "System Demand",
+    yAxisLabel: "System PRICEEEEEEEEEEEEEEES",
     xAxisLabel: "Settlement Period",
     yAxisUnity: "MW",
     xAxisUnity: "",
@@ -62,6 +63,22 @@ router.get('/', function(req, res) {
     id:"myChart8",
     type:"line",
     yAxisLabel: "Last Frequency gauger. Actual Value: 54,23",
+    xAxisLabel: "",
+    yAxisUnity: "",
+    xAxisUnity: "",
+  },{
+    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
+    id:"myChart9",
+    type:"line",
+    yAxisLabel: "Initial Transmision",
+    xAxisLabel: "",
+    yAxisUnity: "",
+    xAxisUnity: "",
+  },{
+    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
+    id:"myChart10",
+    type:"line",
+    yAxisLabel: "Interconnections",
     xAxisLabel: "",
     yAxisUnity: "",
     xAxisUnity: "",

@@ -24,7 +24,7 @@ async function getLastFuelPoints(func){
       obj[row.timefull.getTime()][row.ft] = row.fg;
     }
   }
-  client.end()
+  return {dataQuery: "lastFuel", result: objToArray(obj)};
 }
 
 async function getLastFreq(){
@@ -35,7 +35,7 @@ async function getLastFreq(){
       obj[row.ts.getTime()] = row.sf;
     }
   }
-  client.end()
+  return {dataQuery: "lastFreq", result: objToArray(obj)};
 }
 
 async function getLastImbalance(){
@@ -49,7 +49,7 @@ async function getLastImbalance(){
       obj[row.timefull.getTime()][row.zi] = row.vi;
     }
   }
-  client.end()
+  return {dataQuery: "lastImbalance", result: objToArray(obj)};
 }
 
 async function getLastNationalImbalance(){
@@ -63,7 +63,7 @@ async function getLastNationalImbalance(){
       obj[row.timefull.getTime()][row.zi] = row.vi;
     }
   }
-  client.end()
+  return obj;
 }
 
 async function getLastInterconnects(){
@@ -77,7 +77,7 @@ async function getLastInterconnects(){
       obj[row.timefull.getTime()][row.ft] = row.fg;
     }
   }
-  client.end()
+  return {dataQuery: "lastInterconnections", result: objToArray(obj)};
 }
 
 async function getLastInitialTransmision(){
@@ -86,7 +86,7 @@ async function getLastInitialTransmision(){
   for(const row of query.rows){
     obj[row.timefull.getTime()] = row.vd
   }
-  client.end()
+  return {dataQuery: "lastInitialTransmision", result: objToArray(obj)};
 }
 
 async function getLastSystemWarn(){
@@ -95,10 +95,10 @@ async function getLastSystemWarn(){
   for(const row of query.rows){
     obj[row.warningdatetime.getTime()] = row.systemwarning
   }
-  client.end()
+  return obj;
 }
 
-async function getLastForcast(){
+async function getLastForecast(){
   const query = await client.query('SELECT * FROM bmrs.get_latest_tsdf()')
   const obj = {}
   for(const row of query.rows){
@@ -109,7 +109,7 @@ async function getLastForcast(){
       obj[row.timefull.getTime()][row.zi] = row.vd;
     }
   }
-  client.end()
+  return {dataQuery: "lastForecast", result: objToArray(obj)};
 }
 
 async function getLastRollingSystem(){
@@ -118,7 +118,7 @@ async function getLastRollingSystem(){
   for(const row of query.rows){
     obj[row.ts.getTime()] = row.sum;
   }
-  client.end()
+  return {dataQuery: "lastRollingSystem", result: objToArray(obj)};
 }
 
 async function getLastSystemPrices(){
@@ -130,27 +130,37 @@ async function getLastSystemPrices(){
       systemBuyPrice: row.systembuyprice
     };
   }
-  client.end()
+  return {dataQuery: "lastSystemPrices", result: objToArray(obj)};
 }
 
-async function handleError(func){
+function handleError(func){
     try{
-        const result = await func();
+        const result = func();
         return result
     }catch(e){
         return {err: true, msg: e}
     }
 }
 
+function objToArray(obj){
+  const arr = []
+  for(const ts in obj){
+    const pushObj = obj[ts];
+    pushObj.ts = ts;
+    arr.push(pushObj)
+  }
+  return arr;
+}
+
 module.exports = {
-  getLastFuelPoints: handleError(getLastFuelPoints),
-  getLastFreq: handleError(getLastFreq),
-  getLastImbalance: handleError(getLastImbalance),
-  getLastNationalImbalance: handleError(getLastNationalImbalance),
-  getLastInterconnects: handleError(getLastInterconnects),
-  getLastInitialTransmision: handleError(getLastInitialTransmision),
-  getLastSystemWarn: handleError(getLastSystemWarn),
-  getLastForcast: handleError(getLastForcast),
-  getLastRollingSystem: handleError(getLastRollingSystem),
-  getLastSystemPrices: handleError(getLastSystemPrices),
+  getLastFuelPoints: getLastFuelPoints,
+  getLastFreq: getLastFreq,
+  getLastImbalance: getLastImbalance,
+  getLastNationalImbalance: getLastNationalImbalance,
+  getLastInterconnects: getLastInterconnects,
+  getLastInitialTransmision: getLastInitialTransmision,
+  getLastSystemWarn: getLastSystemWarn,
+  getLastForecast: getLastForecast,
+  getLastRollingSystem: getLastRollingSystem,
+  getLastSystemPrices: getLastSystemPrices,
 }
