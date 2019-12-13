@@ -5,6 +5,7 @@
     });
     var cache = <%- JSON.stringify(cache) %>;
     var graphsData = <%- JSON.stringify(graphs) %>
+    console.log(graphsData);
 </script>
 
 <div class="container">
@@ -16,7 +17,7 @@
                 <% } %>
                 <h3 class="font-h3"><%= graphs[i].yAxisLabel %> (<%= graphs[i].yAxisUnit %>)</h3>
                 <canvas class="margin-canvas" style="margin-top:1%;" id='<%= graphs[i].id %>'></canvas>  </canvas>
-                <button type="button" class="btn" rel="tooltip" style="position: absolute; left: 5%; margin-bottom:5%;" data-toggle="tooltip" data-placement="left"
+                <button type="button" class="btn background-tooltip" rel="tooltip" style="position: absolute; left: 5%; margin-bottom:5%;" data-toggle="tooltip" data-placement="left"
                     title='<%= graphs[i].title %>'><i class="fa fa-info-circle" style="font-size:18px" aria-hidden="true"></i>
                     info
                 </button>
@@ -28,7 +29,7 @@
                 <% } %>
                 <h3 class="font-h3"><%= graphs[i+1].yAxisLabel %> (<%= graphs[i+1].yAxisUnit %>)</h3>
                 <canvas class="margin-canvas" style="margin-top: 1%;" id='<%= graphs[i+1].id %>'></canvas>  </canvas>
-                <button type="button" class="btn" rel="tooltip" style="position: absolute; left: 5%;"  data-toggle="tooltip" data-placement="left"
+                <button type="button" class="btn background-tooltip" rel="tooltip" style="position: absolute; left: 5%;"  data-toggle="tooltip" data-placement="left"
                     title='<%= graphs[i+1].title %>'>
                     <i class="fa fa-info-circle" style="font-size:18px" aria-hidden="true"></i>
                     info
