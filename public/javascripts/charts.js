@@ -293,7 +293,7 @@ function getDatasets(cacheData, graphConfigData){
         for(var key in point){
             if(key != "ts" ){
                 if(arrData[key]){
-                    if(point[key] !== null){
+                    if(point[key] > 0){
                         arrData[key].push(point[key])
                     }
                 }else{
@@ -430,7 +430,7 @@ const graphs = [{
     xAxisLabel: graphsData[7].xAxisLabel,
     yAxisUnit: graphsData[7].yAxisUnit,
     xAxisUnit: graphsData[7].xAxisUnit,
-    labels: ["-48", "[48,49)","[49,51]","(51,52]", "+52"],
+    labels: ["-35", "[35,55)","[45,55]","(55,65]", "+65"],
     datasets: [{
         data: [9000, 9000, 9000, 9000, 9000],
         borderColor: ['rgba(175, 33, 33, 1)', 'rgba(175, 175, 33, 1)','rgba(33, 175, 33, 1)','rgba(175, 175, 33, 1)', 'rgba(175, 33, 33, 1)'],
@@ -565,6 +565,7 @@ function createNormalLineZoomChart(graph, documentById){
             scales: {
                 yAxes: [
                     {
+                        stacked: true,
                         gridLines: {
                             display: true
                         },
