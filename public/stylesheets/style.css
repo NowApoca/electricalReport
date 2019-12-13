@@ -2,7 +2,6 @@ body {
   padding: 50px;
   font-size:14px;
   font-family: apertura sans-serif;
-
 }
 
 a {
@@ -26,7 +25,7 @@ canvas {
 
 .btn {
 
- background-color:  #A174FC; /* Blue background */
+ background-color:  rgb(161, 116, 252); /* Blue background */
  border: none; /* Remove borders */
  color: white; /* White text */
  padding: 12px 16px; /* Some padding */

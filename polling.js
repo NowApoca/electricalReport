@@ -1,3 +1,4 @@
+'use strict'
 var awsRDS = require("./awsDatabase")
 var cache = {}
 
