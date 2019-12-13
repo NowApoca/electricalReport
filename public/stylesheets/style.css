@@ -1,7 +1,7 @@
 body {
   padding: 50px;
   font-size:14px;
-  font-family: apertura sans-serif;
+ font-family: Century Gothic;
 }
 
 a {
@@ -24,15 +24,15 @@ canvas {
 }
 
 .btn {
-
+font-family:Century Gothic;
  background-color:  rgb(161, 116, 252); /* Blue background */
  border: none; /* Remove borders */
  color: white; /* White text */
  padding: 12px 16px; /* Some padding */
- font-size: 14px; /* Set a font size */
+ font-size: 11px; /* Set a font size */
  margin-left:2%;
  cursor: pointer; /* Mouse pointer on hover */
-  font-weight:300 !important;
+  font-weight:500 !important;
   font-size:11px;
 }
 
@@ -57,13 +57,24 @@ canvas {
 }
 
 .font-h3{
-color:#C9C9C9!important;
+color:#fff!important;
 font-size:17px !Important;
 font-weight:600;
 width:70%;
 height:11%;
 margin-left:5%;
 margin-top:6%;
+}
+
+.font-net{
+ font-family: Century Gothic;
+color:  rgb(78, 79, 79);
+font-size:17px !important;
+font-weight:700;
+width:70%;
+height:10%;
+margin-left:14% !important;
+margin-top:10% !important;
 }
 
 .col-md-3-panels{
@@ -75,23 +86,4 @@ margin-top:10% !important;
 }
 
 
-/* Tooltip container */
-.tooltip {
-  position: relative !important;
-  display: inline-block !important;
-  border-bottom: 1px dotted black !important; /* If you want dots under the hoverable text */
-}
-
-/* Tooltip text */
-.tooltip .tooltiptext {
-  width: 120px !important;
-  background-color:#F4F4F4 !important;
-  color: #fff !important;
-  text-align: center !important;
-  padding: 5px 0 !important;
-  border-radius: 6px;
-
-  /* Position the tooltip text - see examples below! */
-  position: absolute;
-  z-index: 1;
-}
+.background-tooltip + .tooltip > .tooltip-inner {font-family: Century Gothic; background-color:rgb(211, 211, 211, 0.9);padding:20px 20px 20px 20px;}
