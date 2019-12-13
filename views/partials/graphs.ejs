@@ -5,7 +5,6 @@
     });
     var cache = <%- JSON.stringify(cache) %>;
     var graphsData = <%- JSON.stringify(graphs) %>
-    console.log(graphsData);
 </script>
 
 <div class="container">
@@ -21,7 +20,7 @@
                     title='<%= graphs[i].title %>'><i class="fa fa-info-circle" style="font-size:18px" aria-hidden="true"></i>
                     info
                 </button>
-                <h5 style="position: absolute; right: 15%;">Last update: 11-11-19</h5>
+                <h5 class="font-net" style="position: absolute; right: 5%;">Last Update: <%=  graphs[i].lastUpdate %></h5>
             </div>
             <div class="col-md-3 col-md-3-panels  panel-heading panel panel-default" style="border-radius: 25px; margin-top: 15px; margin-left: 2% ; width: 46%; height: 50vh; background-color: white;">
                 <% if (graphs[i+1].type == "line"){ %>
@@ -34,7 +33,7 @@
                     <i class="fa fa-info-circle" style="font-size:18px" aria-hidden="true"></i>
                     info
                 </button>
-                <h5 style="position: absolute; right: 5%;">Last update: 11-11-19</h5>
+                <h5 class="font-net" style="position: absolute; right: 5%;">Last Update: <%=  graphs[i+1].lastUpdate %></h5>
             </div>
         </div>
     <% } %>

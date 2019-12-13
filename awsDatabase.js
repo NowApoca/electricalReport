@@ -32,7 +32,9 @@ async function getLastFreq(){
   const obj = {}
   for(const row of query.rows){
     if(!obj[row.ts.getTime()]){
-      obj[row.ts.getTime()] = row.sf;
+      obj[row.ts.getTime()] = {
+        val: row.sf
+      };
     }
   }
   return {dataQuery: "lastFreq", result: objToArray(obj)};
@@ -84,7 +86,9 @@ async function getLastInitialTransmision(){
   const query = await client.query('SELECT * FROM bmrs.get_latest_itsdo()')
   const obj = {}
   for(const row of query.rows){
-    obj[row.timefull.getTime()] = row.vd
+    obj[row.timefull.getTime()] = {
+      val: row.vd
+    }
   }
   return {dataQuery: "lastInitialTransmision", result: objToArray(obj)};
 }

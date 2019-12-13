@@ -57,24 +57,18 @@ font-family:Century Gothic;
 }
 
 .font-h3{
-color:#fff!important;
+color:rgb(90, 81, 81)!important;
 font-size:17px !Important;
 font-weight:600;
 width:70%;
 height:11%;
 margin-left:5%;
-margin-top:6%;
 }
 
 .font-net{
  font-family: Century Gothic;
 color:  rgb(78, 79, 79);
-font-size:17px !important;
-font-weight:700;
-width:70%;
-height:10%;
 margin-left:14% !important;
-margin-top:10% !important;
 }
 
 .col-md-3-panels{
