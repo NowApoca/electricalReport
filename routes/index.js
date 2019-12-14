@@ -82,9 +82,9 @@ router.get('/', function(req, res) {
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart8",
     type:"line",
-    yAxisLabel: "Last Frequency gauger. Actual Value: 54,23",
+    yAxisLabel: "Last Frequency gauger. Actual Value: "+ cache.netStatus.lastFreq,
     xAxisLabel: "Settlement Period",
-    yAxisUnit: "",
+    yAxisUnit: "Hz",
     xAxisUnit: "",
     lastUpdate: lastUpdateFormat(cache.lastFreq.lastUpdate),
   },{

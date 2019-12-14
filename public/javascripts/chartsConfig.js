@@ -453,7 +453,7 @@ export const graphs = [{
     xAxisLabel: graphsData[7].xAxisLabel,
     yAxisUnit: graphsData[7].yAxisUnit,
     xAxisUnit: graphsData[7].xAxisUnit,
-    labels: ["-35", "[35,55)","[45,55]","(55,65]", "+65"],
+    labels: ["-48", "[48,49)","[49,51]","(51,52]", "+52"],
     datasets: [{
         data: [9000, 9000, 9000, 9000, 9000],
         borderColor: ['rgba(175, 33, 33, 1)', 'rgba(175, 175, 33, 1)','rgba(33, 175, 33, 1)','rgba(175, 175, 33, 1)', 'rgba(175, 33, 33, 1)'],
