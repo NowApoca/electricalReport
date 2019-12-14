@@ -50,7 +50,7 @@ async function polling(){
                     if(cache[query.dataQuery] == []){
                         cache.netStatus.totalConsumption = "Not Measured";
                     }else{
-                        cache.netStatus.totalConsumption = cache[query.dataQuery].result[query.result.length -1].N;
+                        cache.netStatus.totalConsumption = cache[query.dataQuery].result[query.result.length -1].Forecast;
                     }
                 }
                 if(query.dataQuery == "lastFreq"){

@@ -11,6 +11,7 @@ function lastUpdateFormat(ts){
     return "-"
   }
 }
+
 /* GET home page. */
 router.get('/', function(req, res) {
   cache.netStatus.lastUpdate = lastUpdateFormat(cache.netStatus.lastUpdate)
@@ -36,20 +37,20 @@ router.get('/', function(req, res) {
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart3",
     type:"line",
-    yAxisLabel: "Market Imbalance",
+    yAxisLabel: "Interconnections Flow",
     xAxisLabel: "Settlement Period",
-    yAxisUnit: "MWh",
+    yAxisUnit: "MW",
     xAxisUnit: "",
-    lastUpdate: lastUpdateFormat(cache.lastImbalance.lastUpdate),
+    lastUpdate: lastUpdateFormat(cache.lastInterconnections.lastUpdate),
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart4",
     type:"line",
-    yAxisLabel: "Rolling System Demand",
+    yAxisLabel: "Interconnections Flow",
     xAxisLabel: "Settlement Period",
     yAxisUnit: "MW",
     xAxisUnit: "",
-    lastUpdate: lastUpdateFormat(cache.lastRollingSystem.lastUpdate),
+    lastUpdate: lastUpdateFormat(cache.lastInterconnections.lastUpdate),
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart5",
@@ -63,7 +64,7 @@ router.get('/', function(req, res) {
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart6",
     type:"line",
-    yAxisLabel: "System Demand, Forecast",
+    yAxisLabel: "System Demand",
     xAxisLabel: "Settlement Period",
     yAxisUnit: "MW",
     xAxisUnit: "",
@@ -82,7 +83,7 @@ router.get('/', function(req, res) {
     id:"myChart8",
     type:"line",
     yAxisLabel: "Last Frequency gauger. Actual Value: 54,23",
-    xAxisLabel: "",
+    xAxisLabel: "Settlement Period",
     yAxisUnit: "",
     xAxisUnit: "",
     lastUpdate: lastUpdateFormat(cache.lastFreq.lastUpdate),
@@ -90,20 +91,20 @@ router.get('/', function(req, res) {
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart9",
     type:"line",
-    yAxisLabel: "System Demand, Initial Transmision",
-    xAxisLabel: "",
+    yAxisLabel: "Rolling System Demand",
+    xAxisLabel: "Settlement Period",
     yAxisUnit: "MW",
     xAxisUnit: "",
-    lastUpdate: lastUpdateFormat(cache.lastInitialTransmision.lastUpdate),
+    lastUpdate: lastUpdateFormat(cache.lastRollingSystem.lastUpdate),
   },{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart10",
     type:"line",
-    yAxisLabel: "Interconnections Flow",
-    xAxisLabel: "",
-    yAxisUnit: "MW",
+    yAxisLabel: "Market Imbalance",
+    xAxisLabel: "Settlement Period",
+    yAxisUnit: "MWh",
     xAxisUnit: "",
-    lastUpdate: lastUpdateFormat(cache.lastInterconnections.lastUpdate),
+    lastUpdate: lastUpdateFormat(cache.lastImbalance.lastUpdate),
   }] });
 });
 

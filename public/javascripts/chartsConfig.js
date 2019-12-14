@@ -231,17 +231,17 @@ const graphConfig = {
             backgroundColor: 'rgba(111, 252, 116, 0.9)',
         }
     },
-    forecast: {N:{
+    forecast: {Forecast:{
         fill: {display: false},
-        borderColor: 'rgba(161, 116, 252, 1)',
+        borderColor: 'rgba(111, 252, 111, 1)',
         pointRadius: 0.1,
-        backgroundColor: 'rgba(161, 116, 252, 0.9)',
+        backgroundColor: 'rgba(111, 252, 111, 0.9)',
     }},
-    initialTransmision: {val:{
+    initialTransmision: {InitialTransmision:{
         fill: {display: false},
-        borderColor: 'rgba(161, 116, 252, 1)',
+        borderColor: 'rgba(252, 116, 111, 1)',
         pointRadius: 0.1,
-        backgroundColor: 'rgba(161, 116, 252, 0.9)',
+        backgroundColor: 'rgba(252, 116, 111, 0.9)',
     }},
     interconnections: {
         INTEW: {
@@ -309,7 +309,6 @@ function getDatasets(cacheData, graphConfigData){
         const point = cacheData[i-1];
         for(var key in point){
             if(key != "ts" ){
-                console.log(parseInt(point.ts), Date.now() - 86400000)
                 if(parseInt(point.ts) > (Date.now() - 86400000)){
                     if(arrData[key]){
                         arrData[key].push(point[key])

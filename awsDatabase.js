@@ -87,7 +87,7 @@ async function getLastInitialTransmision(){
   const obj = {}
   for(const row of query.rows){
     obj[row.timefull.getTime()] = {
-      val: row.vd
+      InitialTransmision: row.vd
     }
   }
   return {dataQuery: "lastInitialTransmision", result: objToArray(obj)};
@@ -107,10 +107,10 @@ async function getLastForecast(){
   const obj = {}
   for(const row of query.rows){
     if(obj[row.timefull.getTime()]){
-      obj[row.timefull.getTime()][row.zi] = row.vd;
+      obj[row.timefull.getTime()]["Forecast"] = row.vd;
     }else{
       obj[row.timefull.getTime()] = {};
-      obj[row.timefull.getTime()][row.zi] = row.vd;
+      obj[row.timefull.getTime()]["Forecast"] = row.vd;
     }
   }
   return {dataQuery: "lastForecast", result: objToArray(obj)};
