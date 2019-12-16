@@ -1,13 +1,13 @@
 const Client = require('pg').Client
-
+const constants = require("./constants")
 // Configuration of the external data base.
 
 const client = new Client({
-  user: 'modolabs',
-  password: 'm0d0LaBs!0121',
-  host: 'modo.cconwsi52yhe.eu-west-2.rds.amazonaws.com',
-  database: 'modo',
-  port: 5432,
+  user: constants.dbUser,
+  password: constants.dbPassword,
+  host: constants.dbHost,
+  database: constants.dbName,
+  port: constants.dbPort,
 })
 
 client.connect()

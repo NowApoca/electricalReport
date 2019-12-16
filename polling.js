@@ -1,5 +1,7 @@
 'use strict'
 var awsRDS = require("./awsDatabase")
+const constants = require("./constants")
+
 var cache = {
     netStatus: {
         lastUpdate: 0,
@@ -16,7 +18,7 @@ async function polling(){
         async function(){
             await pullData()
             polling()
-        }, 60*5*1000); // Pull data every 5 minutes.
+        }, constants.pollingInterval);
 }
 
 async function pullData(){
