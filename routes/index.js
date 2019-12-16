@@ -12,7 +12,7 @@ function lastUpdateFormat(ts){
   }
 }
 
-/* GET home page. */
+/* GET home page. Configuration of the graphs and position is setted here. Position 0 is the first graph. */
 router.get('/', function(req, res) {
   cache.netStatus.lastUpdate = lastUpdateFormat(cache.netStatus.lastUpdate)
   res.render('index', { title: 'Express', netStatus: cache.netStatus, cache: cache, graphs: [{

@@ -1,5 +1,7 @@
 const Client = require('pg').Client
 
+// Configuration of the external data base.
+
 const client = new Client({
   user: 'modolabs',
   password: 'm0d0LaBs!0121',
@@ -135,15 +137,6 @@ async function getLastSystemPrices(){
     };
   }
   return {dataQuery: "lastSystemPrices", result: objToArray(obj)};
-}
-
-function handleError(func){
-    try{
-        const result = func();
-        return result
-    }catch(e){
-        return {err: true, msg: e}
-    }
 }
 
 function objToArray(obj){

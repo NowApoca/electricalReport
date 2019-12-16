@@ -1,7 +1,11 @@
+// Here is the samples of the graphs. For example, samples of 30 minutes show the behaviour of the last day.
+
 const constants = {
     maxSamplesInGraph: 48
 }
-console.log(cache)
+
+// Graphs Config has the colours and names of all the graphs.
+
 const graphConfig = {
     fuelType: {
         BIOMASS: {
@@ -507,13 +511,3 @@ export const graphs = [{
     labels: getLabels(cache.lastImbalance.result),
     datasets: getDatasets(cache.lastImbalance.result, graphConfig.imbalance)
   }]
-
-  
-// 1576396800000
-// 1576283400000
-
-// FIRST FORECAST 1576310400000
-// LAST FORECAST 1576396800000
-
-// FIRST INTIIAL 1576198800000
-// LAST INITIAL  1576283400000
