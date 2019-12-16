@@ -100,7 +100,7 @@ const graphConfig = {
     },
     },
     signalFreq: {
-        val: {
+        Frequency: {
             fill: "1",
             borderColor: 'rgba(161, 116, 252, 1)',
             backgroundColor: 'rgba(161, 116, 252, 0.9)',
@@ -216,11 +216,11 @@ const graphConfig = {
         backgroundColor: 'rgba(226, 223, 50, 0.9)',
     },
     },
-    rollingSystem: {
+    rollingSystem: {RollingSystem: {
         fill: {display: false},
         borderColor: 'rgba(161, 116, 252, 1)',
         backgroundColor: 'rgba(161, 116, 252, 0.9)',
-    },
+    }},
     systemPrices:{
         systemSellPrice: {
             fill: {display: false},
@@ -379,6 +379,36 @@ function getDataSetsPie(cacheData, graphConfigData){
     }};
 }
 
+function getGaugerData(lastFreq){
+    const data = [];
+    const maxDataQuantity = 500000;
+    const maxDataVariation = 200;
+    const lastFreqWithoutDecimals = Math.trunc(lastFreq*100);
+    const actualData = lastFreqWithoutDecimals - 5000;
+    if(actualData < 0){
+        let positiveActualData = Math.abs(actualData);
+        const percentage = (positiveActualData/maxDataVariation)
+        const firstData = Math.trunc(maxDataQuantity*( 1 - percentage))
+        const secondData = Math.trunc(maxDataQuantity*percentage) + maxDataQuantity;
+        data.push(firstData);
+        data.push(5000);
+        data.push(secondData);
+    }else if(actualData > 0){
+        let positiveActualData = Math.abs(actualData);
+        const percentage = (positiveActualData/maxDataVariation)
+        const secondData = Math.trunc(maxDataQuantity*( 1 - percentage))
+        const firstData = Math.trunc(maxDataQuantity*percentage) + maxDataQuantity;
+        data.push(firstData);
+        data.push(5000);
+        data.push(secondData);
+    }else if(actualData == 0){
+        data.push(maxDataQuantity);
+        data.push(5000);
+        data.push(maxDataQuantity);
+    }
+    return data;
+}
+
 export const graphs = [{
     title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
     id:"myChart1",
@@ -464,11 +494,7 @@ export const graphs = [{
         backgroundColor: ['rgba(175, 33, 33, 1)', 'rgba(175, 175, 33, 1)','rgba(33, 175, 33, 1)','rgba(175, 175, 33, 1)', 'rgba(175, 33, 33, 1)'],
     },
     {
-        "data": [
-            2750,
-            55,
-            2250,
-        ],
+        "data": getGaugerData(cache.netStatus.lastFreq),
         "backgroundColor": [
             "rgba(0, 0, 0, 0)",
             "rgba(0, 0, 0, 0.6)",

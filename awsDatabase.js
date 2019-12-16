@@ -35,7 +35,7 @@ async function getLastFreq(){
   for(const row of query.rows){
     if(!obj[row.ts.getTime()]){
       obj[row.ts.getTime()] = {
-        val: row.sf
+        Frequency: row.sf
       };
     }
   }
@@ -122,7 +122,9 @@ async function getLastRollingSystem(){
   const query = await client.query('SELECT * FROM bmrs.get_rolling_system_demand()')
   const obj = {}
   for(const row of query.rows){
-    obj[row.ts.getTime()] = row.sum;
+    obj[row.ts.getTime()] = {
+      RollingSystem: row.sum,
+    }
   }
   return {dataQuery: "lastRollingSystem", result: objToArray(obj)};
 }

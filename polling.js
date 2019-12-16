@@ -55,7 +55,7 @@ async function pullData(){
             if(cache[query.dataQuery].result == []){
                 cache.netStatus.lastFreq = "Not Measured";
             }else{
-                cache.netStatus.lastFreq = cache[query.dataQuery].result[query.result.length -1].val;
+                cache.netStatus.lastFreq = cache[query.dataQuery].result[query.result.length -1].Frequency;
             }
         }
         if(query.dataQuery == "lastForecast"){
