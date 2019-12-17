@@ -80,4 +80,4 @@ margin-top:10% !important;
 }
 
 
-.background-tooltip + .tooltip > .tooltip-inner {font-family: Century Gothic; background-color:rgb(211, 211, 211, 0.9);padding:20px 20px 20px 20px;}
+.background-tooltip + .tooltip > .tooltip-inner {font-family: Century Gothic; background-color:rgba(63, 60, 60, 1);padding:10px 10px 10px 10px;max-width: 50%;}

@@ -35,7 +35,7 @@ async function getLastFreq(){
   for(const row of query.rows){
     if(!obj[row.ts.getTime()]){
       obj[row.ts.getTime()] = {
-        Frequency: row.sf
+        Frequency: (row.sf == 0)? 50 : row.sf,
       };
     }
   }
@@ -99,9 +99,11 @@ async function getLastSystemWarn(){
   const query = await client.query('SELECT * FROM bmrs.get_latest_syswarn()')
   const obj = {}
   for(const row of query.rows){
-    obj[row.warningdatetime.getTime()] = row.systemwarning
+    obj[row.warningdatetime.getTime()] = {
+      msg: row.systemwarning
+    }
   }
-  return obj;
+  return {dataQuery: "lastWarnings", result: objToArray(obj)};
 }
 
 async function getLastForecast(){

@@ -16,19 +16,19 @@ With node.js, do the following:
 
 ### awsDatabase.js
 
-    Here the data is pulled from the remote database.
+    Here the data is pulled from the remote database and the server connect to the database. 
 
 ### polling.js
 
-    Where the data pulled from the database is processed.
+    Where the data pulled from the database is processed. You can change the time of polling of messages here. Any problem with the data is going to be find here or in awsDatabase.js.
 
 ### app.js
 
-    Here routes and data-managment are setted.
+    Here routes and data-managment are setted. Port is setted in ./bin/www
 
 ### ./routes/index.js
 
-    Graphs configuration and position are setted here.
+    Graphs configuration and position are setted here. Information passed to the index.ejs go here to.
 
 ### ./public/javascripts/charts.js
 
@@ -45,6 +45,8 @@ With node.js, do the following:
 ## Views (from the view)
 
 ### ./index.ejs
+
+    Here all the files are included.
 
 ### ./partials/navbar.ejs
 

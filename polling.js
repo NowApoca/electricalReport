@@ -6,7 +6,7 @@ var cache = {
     netStatus: {
         lastUpdate: 0,
         warningsAmount: 0,
-        lastWarningMsg: "",
+        lastWarningMsg: "No problems with the net registered",
         totalConsumption: 0,
         lastFreq: 0,
       }
@@ -34,7 +34,8 @@ async function pullData(){
     arr.push(await awsRDS.getLastForecast());
     arr.push(await awsRDS.getLastRollingSystem());
     arr.push(await awsRDS.getLastSystemPrices());
-    cache.lastUpdate = 0;
+    cache.lastUpdate = (new Date()).getTime();
+    cache.netStatus.lastUpdate = (new Date()).getTime();
     for(const query of arr){
         if(cache[query.dataQuery] == undefined){
             cache[query.dataQuery] = {
@@ -47,7 +48,6 @@ async function pullData(){
             if(query.result[query.result.length -1].ts > cache[query.dataQuery].lastUpdate){
                 cache[query.dataQuery].result = query.result;
                 cache[query.dataQuery].lastUpdate = query.result[query.result.length -1].ts;
-                cache.netStatus.lastUpdate = cache[query.dataQuery].lastUpdate;
             }
         }
         // Process data showed in the status var i.e. Frequency, warnings, etc.
@@ -59,17 +59,21 @@ async function pullData(){
             }
         }
         if(query.dataQuery == "lastForecast"){
-            if(cache[query.dataQuery] == []){
+            if(cache[query.dataQuery].result == []){
                 cache.netStatus.totalConsumption = "Not Measured";
             }else{
                 cache.netStatus.totalConsumption = cache[query.dataQuery].result[query.result.length -1].Forecast;
             }
         }
-        if(query.dataQuery == "lastFreq"){
-            
-        }
-        if(query.dataQuery == "lastFreq"){
-            
+        if(query.dataQuery == "lastWarnings"){
+            if(cache[query.dataQuery].result == [] && (parseInt(cache.lastWarningMsg.lastUpdate) < (new Date().getTime()) - 86400000 )){
+                cache.netStatus.warningsAmount = 0;
+                cache.netStatus.lastWarningMsg = "No problems with the net registered";
+            }else{
+                cache.netStatus.warningsAmount = cache[query.dataQuery].result.length;
+                cache.netStatus.lastWarningMsg = cache[query.dataQuery].result[cache[query.dataQuery].result.length -1].msg;
+                cache.lastWarningMsg.lastUpdate = cache[query.dataQuery].result[cache[query.dataQuery].result.length -1].ts;
+            }
         }
     }
 }

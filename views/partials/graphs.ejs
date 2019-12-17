@@ -13,7 +13,7 @@
         <div class="row" style="width: 100%; margin-bottom: 50px;">
             <div class="col-md-3 col-md-3-panels panel-heading panel panel-default" style="border-radius: 25px; margin-top: 15px; margin-left: 2% ; width: 46%; height: 50vh; background-color:white;">
                 <% if (graphs[i].type == "line"){ %>
-                    <button class="btn" style="position:absolute; right:8%; margin-top:3%;" onclick={resetZoom('<%= i %>')} ><i class="fa fa-refresh" style="font-size:18px; padding-right:8%;" aria-hidden="true"></i>Reset</button>
+                    <button class="btn" style="position:absolute; right:8%; margin-top:3%;" id='<%=graphs[i].id + "Rst" %>' onclick={resetZoom('<%= i %>')} ><i class="fa fa-refresh" style="font-size:18px; padding-right:8%;" aria-hidden="true"></i>Reset</button>
                 <% } %>
                 <h3 class="font-h3"><%= graphs[i].yAxisLabel %> (<%= graphs[i].yAxisUnit %>)</h3>
                 <canvas class="margin-canvas" style="margin-top:1%;" id='<%= graphs[i].id %>'></canvas>  </canvas>
@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-3 col-md-3-panels  panel-heading panel panel-default" style="border-radius: 25px; margin-top: 15px; margin-left: 2% ; width: 46%; height: 50vh; background-color: white;">
                 <% if (graphs[i+1].type == "line"){ %>
-                    <button class="btn" style="position: absolute; right:10%; margin-top: 5%;" onclick={resetZoom('<%= i+1 %>')}> <i class="fa fa-refresh" style="font-size:18px; padding-right:8%;" aria-hidden="true"></i>Reset</button>
+                    <button class="btn" style="position: absolute; right:10%; margin-top: 5%;" id='<%=graphs[i+1].id + "Rst" %>' onclick={resetZoom('<%= i+1 %>')}> <i class="fa fa-refresh" style="font-size:18px; padding-right:8%;" aria-hidden="true"></i>Reset</button>
                 <% } %>
                 <h3 class="font-h3"><%= graphs[i+1].yAxisLabel %> (<%= graphs[i+1].yAxisUnit %>)</h3>
                 <canvas class="margin-canvas" style="margin-top: 1%;" id='<%= graphs[i+1].id %>'></canvas>  </canvas>

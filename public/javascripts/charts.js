@@ -1,12 +1,10 @@
 import { graphs } from './chartsConfig.js';
 
-function floatToUnit(value, unit) {
-    return unit + (value).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,');
-}
-
 for(const graph of graphs){
     renderChart(graph);
 }
+
+// Here the chart is rendered, both pie and line charts. A html element is needed.
 
 function renderChart(graph) {
     let ctx = document.getElementById(graph.id).getContext('2d');
@@ -26,8 +24,21 @@ function renderChart(graph) {
 
 function resetZoom(i){
     var chart = renderChart(graphs[i])
-    myChart8.resetZoom()
+    chart.resetZoom()
 }
+
+// here the zoom is enabled to line charts. Put it for doughnut graphs does not have sense.
+
+for(const index in graphs){
+    if(graphs[index].type == "line"){
+        const ctx = document.getElementById(graphs[index].id + "Rst");
+        ctx.onclick = function(){
+            resetZoom(index)
+        }
+    }
+}
+
+// Configuration of each line graph.
 
 function createNormalLineZoomChart(graph, documentById){
     new Chart(documentById, {

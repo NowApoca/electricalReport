@@ -4,7 +4,7 @@ const constants = {
     maxSamplesInGraph: 48
 }
 
-// Graphs Config has the colours and names of all the graphs.
+// Graphs Config has the colours and names of all the graphs. Each document represents a line in a graph or a percentage in a doughnut.
 
 const graphConfig = {
     fuelType: {
@@ -281,18 +281,18 @@ const graphConfig = {
     }
 }
 
-function getLabels(cacheData){
+function getLabels(cacheData, maxSamplesInGraph){
     var arr = [];
     if(cacheData == undefined || cacheData.lastUpdate == 0){
         return [];
     }
-    for(let i = 0; i < constants.maxSamplesInGraph; i++){
+    for(let i = 0; i < maxSamplesInGraph; i++){
         arr.push(String(i))
     }
     return arr;
 }
 
-function getDatasets(cacheData, graphConfigData){
+function getDatasets(cacheData, graphConfigData, maxSamplesInGraph, minTimestampInterval){
     if(cacheData == undefined || cacheData.lastUpdate == 0){
         return {
             fill: "1",
@@ -302,18 +302,21 @@ function getDatasets(cacheData, graphConfigData){
             labels: [0],
         }
     }
+    if(minTimestampInterval === undefined){
+        minTimestampInterval = getMinTimeInterval(cacheData, maxSamplesInGraph)
+    }
     var arrData = {};
     var arrDatasets = [];
     let initialIndex = 0;
     let keys = Object.keys(cacheData);
-    if(keys.length > constants.maxSamplesInGraph){
-        initialIndex = keys.length - constants.maxSamplesInGraph - 1;
+    if(keys.length > maxSamplesInGraph){
+        initialIndex = keys.length - maxSamplesInGraph - 1;
     }
     for(let i = initialIndex; i < keys.length; i++){
         const point = cacheData[i-1];
         for(var key in point){
             if(key != "ts" ){
-                if(parseInt(point.ts) > (Date.now() - 86400000)){
+                if(parseInt(point.ts) > (Date.now() - 86400000) && (parseInt(point.ts) >= minTimestampInterval)){
                     if(arrData[key]){
                         arrData[key].push(point[key])
                     }else{
@@ -321,9 +324,9 @@ function getDatasets(cacheData, graphConfigData){
                     }
                 }else{
                     if(arrData[key]){
-                        arrData[key].push(0)
+                        arrData[key].push(undefined)
                     }else{
-                        arrData[key] = [0]
+                        arrData[key] = [undefined]
                     }
                 }
             }
@@ -339,6 +342,17 @@ function getDatasets(cacheData, graphConfigData){
         }
     }
     return arrDatasets;
+}
+
+// Get the first timestamp of the interval showed in the front end.
+
+function getMinTimeInterval(cacheData, maxSamplesInGraph){
+    let initialIndex = 0;
+    let keys = Object.keys(cacheData);
+    if(keys.length > maxSamplesInGraph){
+        initialIndex = keys.length - maxSamplesInGraph - 1;
+    }
+    return cacheData[initialIndex].ts;
 }
 
 function getDataSetsPie(cacheData, graphConfigData){
@@ -410,19 +424,17 @@ function getGaugerData(lastFreq){
 }
 
 export const graphs = [{
-    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
-    id:"myChart1",
-    type:"line",
+    id: graphsData[0].id,
+    type: graphsData[0].type,
     yAxisLabel: graphsData[0].yAxisLabel,
     xAxisLabel: graphsData[0].xAxisLabel,
     yAxisUnit: graphsData[0].yAxisUnit,
     xAxisUnit: graphsData[0].xAxisUnit,
-    labels: getLabels(cache.lastFuel.result),
-    datasets: getDatasets(cache.lastFuel.result, graphConfig.fuelType)
+    labels: getLabels(cache.lastFuel.result, 48),
+    datasets: getDatasets(cache.lastFuel.result, graphConfig.fuelType, 48)
   },{
-    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
-    id:"myChart2",
-    type:"doughnut",
+    id: graphsData[1].id,
+    type: graphsData[1].type,
     yAxisLabel: graphsData[1].yAxisLabel,
     xAxisLabel: graphsData[1].xAxisLabel,
     yAxisUnit: graphsData[1].yAxisUnit,
@@ -430,59 +442,54 @@ export const graphs = [{
     labels: getDataSetsPie(cache.lastFuel.result, graphConfig.fuelType).labels,
     datasets: [getDataSetsPie(cache.lastFuel.result, graphConfig.fuelType).datasets],
   },{
-    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
-    id:"myChart3",
-    type:"line",
-    yAxisLabel: graphsData[9].yAxisLabel,
-    xAxisLabel: graphsData[9].xAxisLabel,
-    yAxisUnit: graphsData[9].yAxisUnit,
-    xAxisUnit: graphsData[9].xAxisUnit,
-    labels: getLabels(cache.lastInterconnections.result),
-    datasets: getDatasets(cache.lastInterconnections.result, graphConfig.interconnections)
+    id: graphsData[2].id,
+    type: graphsData[2].type,
+    yAxisLabel: graphsData[2].yAxisLabel,
+    xAxisLabel: graphsData[2].xAxisLabel,
+    yAxisUnit: graphsData[2].yAxisUnit,
+    xAxisUnit: graphsData[2].xAxisUnit,
+    labels: getLabels(cache.lastInterconnections.result, 48),
+    datasets: getDatasets(cache.lastInterconnections.result, graphConfig.interconnections, 48)
   },{
-    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
-    id:"myChart4",
-    type:"doughnut",
-    yAxisLabel: graphsData[1].yAxisLabel,
-    xAxisLabel: graphsData[1].xAxisLabel,
-    yAxisUnit: graphsData[1].yAxisUnit,
-    xAxisUnit: graphsData[1].xAxisUnit,
+    id: graphsData[3].id,
+    type: graphsData[3].type,
+    yAxisLabel: graphsData[3].yAxisLabel,
+    xAxisLabel: graphsData[3].xAxisLabel,
+    yAxisUnit: graphsData[3].yAxisUnit,
+    xAxisUnit: graphsData[3].xAxisUnit,
     labels: getDataSetsPie(cache.lastInterconnections.result, graphConfig.interconnections).labels,
     datasets: [getDataSetsPie(cache.lastInterconnections.result, graphConfig.interconnections).datasets],
   },{
-    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
-    id:"myChart5",
-    type:"line",
+    id: graphsData[4].id,
+    type: graphsData[4].type,
     yAxisLabel: graphsData[4].yAxisLabel,
     xAxisLabel: graphsData[4].xAxisLabel,
     yAxisUnit: graphsData[4].yAxisUnit,
     xAxisUnit: graphsData[4].xAxisUnit,
-    labels: getLabels(cache.lastSystemPrices.result),
-    datasets: getDatasets(cache.lastSystemPrices.result, graphConfig.systemPrices)
+    labels: getLabels(cache.lastSystemPrices.result, 48),
+    datasets: getDatasets(cache.lastSystemPrices.result, graphConfig.systemPrices, 48)
   },{
-    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
-    id:"myChart6",
-    type:"line",
+    id: graphsData[5].id,
+    type: graphsData[5].type,
     yAxisLabel: graphsData[5].yAxisLabel,
     xAxisLabel: graphsData[5].xAxisLabel,
     yAxisUnit: graphsData[5].yAxisUnit,
     xAxisUnit: graphsData[5].xAxisUnit,
-    labels: getLabels(cache.lastForecast.result),
-    datasets: getDatasets(cache.lastForecast.result, graphConfig.forecast).concat(getDatasets(cache.lastInitialTransmision.result, graphConfig.initialTransmision))
+    labels: getLabels(cache.lastForecast.result, 48),
+    datasets: getDatasets(cache.lastForecast.result, graphConfig.forecast, 48).concat(getDatasets(cache.lastInitialTransmision.result,
+        graphConfig.initialTransmision, 48, getMinTimeInterval(cache.lastForecast.result, 48))),
     },{
-    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
-    id:"myChart7",
-    type:"line",
+    id: graphsData[6].id,
+    type: graphsData[6].type,
     yAxisLabel: graphsData[6].yAxisLabel,
     xAxisLabel: graphsData[6].xAxisLabel,
     yAxisUnit: graphsData[6].yAxisUnit,
     xAxisUnit: graphsData[6].xAxisUnit,
-    labels: getLabels(cache.lastFreq.result),
-    datasets: getDatasets(cache.lastFreq.result, graphConfig.signalFreq)
+    labels: getLabels(cache.lastFreq.result, 48),
+    datasets: getDatasets(cache.lastFreq.result, graphConfig.signalFreq, 48)
   },{
-    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
-    id:"myChart8",
-    type:"doughnut",
+    id: graphsData[7].id,
+    type: graphsData[7].type,
     yAxisLabel: graphsData[7].yAxisLabel,
     xAxisLabel: graphsData[7].xAxisLabel,
     yAxisUnit: graphsData[7].yAxisUnit,
@@ -517,23 +524,21 @@ export const graphs = [{
             position: 'right',
         }
     }},{
-        title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
-        id:"myChart9",
-        type:"line",
-        yAxisLabel: graphsData[3].yAxisLabel,
-        xAxisLabel: graphsData[3].xAxisLabel,
-        yAxisUnit: graphsData[3].yAxisUnit,
-        xAxisUnit: graphsData[3].xAxisUnit,
-        labels: getLabels(cache.lastRollingSystem.result),
-        datasets: getDatasets(cache.lastRollingSystem.result, graphConfig.rollingSystem)
+        id: graphsData[8].id,
+        type: graphsData[8].type,
+        yAxisLabel: graphsData[8].yAxisLabel,
+        xAxisLabel: graphsData[8].xAxisLabel,
+        yAxisUnit: graphsData[8].yAxisUnit,
+        xAxisUnit: graphsData[8].xAxisUnit,
+        labels: getLabels(cache.lastRollingSystem.result, 12),
+        datasets: getDatasets(cache.lastRollingSystem.result, graphConfig.rollingSystem, 12)
     },{
-    title:"Many users already have downloaded Bootstrap from MaxCDN when visiting another site. As a result, it will be loaded from cache when they visit your site, which leads to faster loading time. Also, most CDN's will make sure that once a user requests a file from it, it will be served from the server closest to them, which also leads to faster loading time.",
-    id:"myChart10",
-    type:"line",
-    yAxisLabel: graphsData[2].yAxisLabel,
-    xAxisLabel: graphsData[2].xAxisLabel,
-    yAxisUnit: graphsData[2].yAxisUnit,
-    xAxisUnit: graphsData[2].xAxisUnit,
-    labels: getLabels(cache.lastImbalance.result),
-    datasets: getDatasets(cache.lastImbalance.result, graphConfig.imbalance)
+        id: graphsData[9].id,
+        type: graphsData[9].type,
+    yAxisLabel: graphsData[9].yAxisLabel,
+    xAxisLabel: graphsData[9].xAxisLabel,
+    yAxisUnit: graphsData[9].yAxisUnit,
+    xAxisUnit: graphsData[9].xAxisUnit,
+    labels: getLabels(cache.lastImbalance.result, 48),
+    datasets: getDatasets(cache.lastImbalance.result, graphConfig.imbalance, 48)
   }]
