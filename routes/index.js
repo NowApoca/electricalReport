@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var cache = require("..//polling").cache;
+var cache = require("../polling").cache;
 
 function lastUpdateFormat(ts){
   const intTs = parseInt(ts)

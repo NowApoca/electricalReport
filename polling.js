@@ -21,19 +21,26 @@ async function polling(){
         }, constants.pollingInterval);
 }
 
+async function handleErrorAsync(func, arr){
+    try{
+        const result = await func();
+        arr.push(result);
+    }catch(e){
+        console.log("Error in Polling: "+e)
+    }
+    return;
+}
+
 async function pullData(){
     const arr = []
-    // Push the results to an array for later processing it.
-    // arr.push(lastNationalImbalance = await awsRDS.getLastNationalImbalance());
-    // const lastSystemWarn = await awsRDS.getLastSystemWarn();
-    arr.push(await awsRDS.getLastFreq());
-    arr.push(await awsRDS.getLastFuelPoints());
-    arr.push(await awsRDS.getLastImbalance());
-    arr.push(await awsRDS.getLastInterconnects());
-    arr.push(await awsRDS.getLastInitialTransmision());
-    arr.push(await awsRDS.getLastForecast());
-    arr.push(await awsRDS.getLastRollingSystem());
-    arr.push(await awsRDS.getLastSystemPrices());
+    await handleErrorAsync(awsRDS.getLastFreq, arr);
+    await handleErrorAsync(awsRDS.getLastFuelPoints, arr);
+    await handleErrorAsync(awsRDS.getLastImbalance, arr);
+    await handleErrorAsync(awsRDS.getLastInterconnects, arr);
+    await handleErrorAsync(awsRDS.getLastInitialTransmision, arr);
+    await handleErrorAsync(awsRDS.getLastForecast, arr);
+    await handleErrorAsync(awsRDS.getLastRollingSystem, arr);
+    await handleErrorAsync(awsRDS.getLastSystemPrices, arr);
     cache.lastUpdate = (new Date()).getTime();
     cache.netStatus.lastUpdate = (new Date()).getTime();
     for(const query of arr){
