@@ -32,7 +32,7 @@ async function handleErrorAsync(func, arr){
 }
 
 async function pullData(){
-    const arr = []
+    const arr = [] a
     await handleErrorAsync(awsRDS.getLastFreq, arr);
     await handleErrorAsync(awsRDS.getLastFuelPoints, arr);
     await handleErrorAsync(awsRDS.getLastImbalance, arr);
